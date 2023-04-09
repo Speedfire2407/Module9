@@ -1,7 +1,9 @@
 ﻿namespace Task2
 {
+    // Мой созданный эксепшн
     class MyException : Exception
     { }
+    // Класс в котором имеется событие
     class Numberreader
     {
         public delegate void NumberreaderDelegate(int value, string[] names);
@@ -29,7 +31,10 @@
     }
     internal class Program
     {
+        // Константа русских букв
         const string Alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя.";
+
+        // сортировка от А до Я
         public static void Sort1(string[] surnames)
         {
             var orderredPeople = from p in surnames orderby p select p;
@@ -39,7 +44,7 @@
                 Console.WriteLine(sur);
             }
         }
-
+        // Сортировка от Я до А
         public static void Sort2(string[] surnames)
         {
             var orderredPeople = from p in surnames orderby p select p;
@@ -48,6 +53,7 @@
                 Console.WriteLine(sur);
             }
         }
+        // Выбор метода сортировки
         public static void RunMethod (int number, string[] surnames)
         {
             switch (number)
@@ -62,6 +68,7 @@
 
         static void Main(string[] args)
         {
+            // просим пользователя ввести массив их пять фамилий, с помощьью константы мы отсеиваем нежелательные символы
             string[] surnames = new string[5];
             Console.WriteLine("Задайте массив фамилий");
             for (int i=0; i<surnames.Length; i++)
@@ -95,6 +102,7 @@
                     }
                 }
             }
+            
             Numberreader numberreader = new Numberreader();
             numberreader.NumberEvent += RunMethod;
             try
